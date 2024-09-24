@@ -1,0 +1,50 @@
+@use "../../../styles.scss";
+
+.loading {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  background-color: #bf090a;
+  height:100dvh;
+  width: 100dvw;
+  h1 {
+    color: #fdfe14;
+    font-size: 80px;
+    font-weight: 100;
+    position: relative;
+  }
+  h1::before {
+    content: "Plus Ultra!";
+    width: 120%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: black;
+    z-index: -1;
+  }
+
+  &.active {
+    h1 {
+      animation: pulse 2s ease-in infinite alternate-reverse;
+    }
+  }
+  &:not(.active) {
+    h1 {
+      animation: fadeout 0.4s ease-in forwards;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  75% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  100% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+}
+

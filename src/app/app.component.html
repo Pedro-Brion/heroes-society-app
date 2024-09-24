@@ -1,7 +1,23 @@
+<hs-loading [loading]="loading" />
+@if(!loading){
 <div class="container">
-  <h1>Plus Ultra!</h1>
-  <p>{{id}}</p>
-  <p>{{name}}</p>
-  <pre style="font-size: 10px;">{{access_token}}</pre>
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/heroes" routerLinkActive="active" ariaCurrentWhenActive="page">
+          Heroes
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="content">
+    <router-outlet />
+  </div>
 </div>
-<router-outlet />
+}
