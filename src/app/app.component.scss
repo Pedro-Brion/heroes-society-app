@@ -12,12 +12,14 @@ nav {
 .content {
   height: calc(100dvh - styles.$navbar-height);
   width: 100dvw;
-  background-color: #bf090a;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  z-index: 1;
+}
+
+.container.loading{
+  display: none;
 }
 

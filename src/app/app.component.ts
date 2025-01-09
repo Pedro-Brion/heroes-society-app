@@ -34,22 +34,14 @@ export class AppComponent {
     private loadingService: LoadingService,
     private router: Router
   ) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.authService.getUserLogged();
-    }
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        this.loadingService.start();
-      } else if (
-        event instanceof NavigationEnd ||
-        event instanceof NavigationCancel ||
-        event instanceof NavigationError
-      ) {
-        this.loadingService.stop();
-      }
-    });
     this.loadingService.loading$.subscribe((_loading) => {
       this.loading = _loading;
     });
+  }
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.authService.getUserLogged();
+    }
   }
 }

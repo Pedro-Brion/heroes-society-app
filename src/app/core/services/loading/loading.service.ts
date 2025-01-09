@@ -1,4 +1,11 @@
 import { Injectable } from '@angular/core';
+import {
+  NavigationCancel,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  Router,
+} from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
@@ -8,15 +15,30 @@ export class LoadingService {
 
   public loading$: Observable<boolean> = this.loadingSubject.asObservable();
 
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.start();
+      } else if (
+        event instanceof NavigationEnd ||
+        event instanceof NavigationCancel ||
+        event instanceof NavigationError
+      ) {
+        this.stop();
+      }
+    });
+  }
+
   start() {
     this.activeRequests++;
+    console.log('START', this.activeRequests);
     this.loadingSubject.next(true);
   }
 
   stop() {
-    this.activeRequests--;
+    if (this.activeRequests > 0) this.activeRequests--;
     if (this.activeRequests <= 0) {
-      this.loadingSubject.next(false);
+      setTimeout(() => this.loadingSubject.next(false), 200);
     }
   }
 }

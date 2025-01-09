@@ -5,8 +5,8 @@
   position: absolute;
   justify-content: center;
   align-items: center;
-  background-color: #bf090a;
-  height:100dvh;
+  // background-color: #bf090a;
+  height: 100dvh;
   width: 100dvw;
   h1 {
     color: #fdfe14;
@@ -30,9 +30,7 @@
     }
   }
   &:not(.active) {
-    h1 {
-      animation: fadeout 0.4s ease-in forwards;
-    }
+    animation: fadeout 0.4s ease-in forwards;
   }
 }
 
@@ -47,4 +45,3 @@
     transform: scale3d(1.1, 1.1, 1.1);
   }
 }
-

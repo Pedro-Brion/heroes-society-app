@@ -1,4 +1,12 @@
 
 <div class="page">
   Heroes
+
+  @for (hero of heroes; track hero.id) {
+    <div class="hero">
+      <p>Name: {{hero.name}}</p>
+      <p>Hero: {{hero.hero_name}}</p>
+      <p>Age: {{hero.age}}</p>
+    </div>
+  }
 </div>

@@ -3,11 +3,7 @@ import { Injectable } from '@angular/core';
 import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { ApiService } from '../api/api.service';
-
-interface ApiResponse {
-  data: any;
-  error: string | null;
-}
+import { ApiResponse } from '../api/api';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
