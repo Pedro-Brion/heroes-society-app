@@ -13,14 +13,14 @@ import {
 } from '@angular/router';
 import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { AuthService } from './core/services/auth/auth.service';
-import { User } from './core/models/User';
 import { LoadingComponent } from './common/components/loading/loading.component';
 import { LoadingService } from './core/services/loading/loading.service';
+import { NavbarComponent } from './common/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoadingComponent, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, LoadingComponent, NavbarComponent],
   providers: [HttpClient, SsrCookieService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

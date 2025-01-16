@@ -15,6 +15,7 @@ export class HeroesComponent {
   constructor(private heroesService: HeroesService) {}
 
   ngOnInit() {
+    console.log("LOADING HEROES")
     this.heroesService
       .loadAll()
       .subscribe((res) => (this.heroes = res as Hero[]));

@@ -1,20 +1,6 @@
 <hs-loading [loading]="loading" />
-<div class="container" [class.loading]="loading">
-  <nav>
-    <ul>
-      <li>
-        <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
-          Home
-        </a>
-      </li>
-
-      <li>
-        <a routerLink="/heroes" routerLinkActive="active" ariaCurrentWhenActive="page">
-          Heroes
-        </a>
-      </li>
-    </ul>
-  </nav>
+<div class="content-wrapper" [class.loading]="loading">
+  <hs-navbar />
   <div class="content">
     <router-outlet />
   </div>

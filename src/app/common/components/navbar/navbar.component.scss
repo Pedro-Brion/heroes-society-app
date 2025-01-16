@@ -1,0 +1,5 @@
+@use "~/styles.scss";
+nav {
+  height: styles.$navbar-height;
+  padding: 10px;
+}

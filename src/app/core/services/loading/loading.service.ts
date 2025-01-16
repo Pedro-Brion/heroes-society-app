@@ -15,10 +15,12 @@ export class LoadingService {
 
   public loading$: Observable<boolean> = this.loadingSubject.asObservable();
 
+  private timer: any;
+
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        this.start();
+        this.start('NAVIGATION');
       } else if (
         event instanceof NavigationEnd ||
         event instanceof NavigationCancel ||
@@ -29,16 +31,19 @@ export class LoadingService {
     });
   }
 
-  start() {
+  start(parent?: string) {
     this.activeRequests++;
-    console.log('START', this.activeRequests);
+    console.log('START', this.activeRequests, parent);
     this.loadingSubject.next(true);
+    clearTimeout(this.timer);
   }
 
   stop() {
-    if (this.activeRequests > 0) this.activeRequests--;
-    if (this.activeRequests <= 0) {
-      setTimeout(() => this.loadingSubject.next(false), 8000);
-    }
+    console.log('STOPING', --this.activeRequests);
+    if (this.activeRequests <= 0)
+      this.timer = setTimeout(() => {
+        console.log('STOPING FOR REAL');
+        this.loadingSubject.next(false);
+      }, 200);
   }
 }

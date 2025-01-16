@@ -11,7 +11,7 @@ export class ApiService {
   constructor(private http: HttpClient, private loading: LoadingService) {}
 
   get<T>(endpoint: string) {
-    this.loading.start();
+    this.loading.start(endpoint);
     return this.http
       .get<T>(`${env.apiUrl}/${endpoint}`)
       .pipe(finalize(() => this.loading.stop()));
