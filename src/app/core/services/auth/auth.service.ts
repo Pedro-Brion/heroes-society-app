@@ -28,10 +28,7 @@ export class AuthService {
       },
       error: (err) => {
         console.error('ERR', err);
-        this.requestSubject.next({
-          data: null,
-          error: err || 'Erro',
-        });
+        this.getUserLogged();
       },
     });
   }

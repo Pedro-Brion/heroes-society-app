@@ -38,7 +38,7 @@ export class LoadingService {
   stop() {
     if (this.activeRequests > 0) this.activeRequests--;
     if (this.activeRequests <= 0) {
-      setTimeout(() => this.loadingSubject.next(false), 200);
+      setTimeout(() => this.loadingSubject.next(false), 8000);
     }
   }
 }

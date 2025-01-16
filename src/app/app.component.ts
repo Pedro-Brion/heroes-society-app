@@ -14,7 +14,7 @@ import {
 import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { AuthService } from './core/services/auth/auth.service';
 import { User } from './core/models/User';
-import { LoadingComponent } from './common/loading/loading.component';
+import { LoadingComponent } from './common/components/loading/loading.component';
 import { LoadingService } from './core/services/loading/loading.service';
 
 @Component({
